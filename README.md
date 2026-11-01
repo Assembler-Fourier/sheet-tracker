@@ -1,40 +1,32 @@
-# Sheet Tracker
+# Sheet Tracker - Weekly Timesheet Tracker for Security Control Rooms
 
-**Which venues' timesheets are still missing this week, who to ask for each one, and when to ring them.**
+Every week, each site a security company covers sends in a photo of its signed timesheet. Some always
+arrive late, and someone in the control room has to work out which ones are missing and who to call.
 
-A Windows desktop tool for a security company's control room. Every week each guarded venue (bars, clubs,
-shops, a bingo hall) sends in a photo of its signed timesheet. Sheet Tracker reads the staff roster, finds
-the week's folder of timesheet photos, matches every photo to a venue, and lists what is still to come in,
-with the guard who has it and the moment their shift ends.
+**Sheet Tracker does that for you.** Open it and you see straight away which timesheets are still
+missing this week, which guard has each one, and the best time to ring them, usually just as their
+shift ends. One click copies the list so you can send it on.
 
-![This week, light theme](docs/screenshots/this-week.png)
+![Sheet Tracker showing this week's missing timesheets](docs/screenshots/this-week.png)
 
-> All screenshots and the bundled roster use **made-up people and venues**. The demo roster keeps the
-> layout of a real roster export, but every name, venue and note in it is invented and the comments are removed.
+![Sheet Tracker in dark mode showing last week](docs/screenshots/last-week-dark.png)
 
-## What it does
+*Everything in the screenshots is made up. The people, venues and timesheets are invented demo data.*
 
-- **Reads the roster** (a Google Sheet, downloaded as a read-only `.xlsx` export; it never writes to it) and
-  works out every venue with somebody rostered between Monday and Sunday.
-- **Finds the week's folder** (`Timesheets DD.MM.YY`, named for the Sunday) on the Desktop or in the yearly
-  archive, and accepts older spellings (`Timesheet 09.02.25`, `timesheets w.e. 20.04.25`, ...).
-- **Matches photos to venues** from messy file names: `K9 (1).png`, `Perch - 3.jpg`, `voltmart westgate.png`,
-  typos, page numbers and WhatsApp names included. Names it can't match can be assigned by hand once
-  and are remembered.
-- **Says who to ask and when.** For each missing sheet it names the guard on that venue's last shift and
-  whether they are on now, finished ("ring him"), or not on until later, with a live countdown.
-- **Knows closing times.** 30 of 41 venues have an end time on the roster. For the rest
-  ("20:00-close"), `ocrscan.ps1` reads thousands of past timesheets with Windows' built-in OCR, and
-  `ocrclose.py` votes on the most likely "time out" for each venue.
-- **Chase list.** Mark a venue as asked, copy or save the list to send, see which venues are *often late*.
-- Light and dark themes, keyboard shortcuts (F5 reload, PgUp/PgDn change week), and an icon designed to be
-  told apart from its sister tool at 16Ã—16.
+## Why it helps
 
-![Last week, dark theme](docs/screenshots/last-week-dark.png)
+- **No more counting photos by hand.** It looks in the week's folder and ticks off every venue that has
+  sent its sheet, even when the photo is named something odd like `k9 (2).png` or `voltmart westgate signed.png`.
+- **It tells you who to call.** For every missing sheet it shows the guard who worked that venue last.
+- **It tells you when to call.** "On now, until 21:30", "finished - ring him", or "not on until 21:00 (in 1h)".
+- **It remembers.** Mark a venue as "asked" and it stays marked. The *Often late* list shows which venues
+  keep missing the deadline.
+- **Easy on the eyes.** A clean window with light and dark mode, made for a busy control-room desk.
+- **Safe.** It only ever *reads* the roster. It never changes it.
 
-## Quick start (demo)
+## Try it in 1 minute
 
-Needs **Python 3.11+ on Windows** (developed on 3.13). No third-party packages: it uses the standard library and tkinter only.
+You need Windows and Python 3.11 or newer. Nothing else needs installing.
 
 ```bash
 git clone https://github.com/Assembler-Fourier/sheet-tracker.git
@@ -42,75 +34,106 @@ cd sheet-tracker
 python tool/app.pyw
 ```
 
-With no roster configured it starts in **demo mode**. `demo/make_demo.py` copies the invented roster with
-its dates moved forward to the current week, and fills `demo/Desktop/` with ten weeks of placeholder
-timesheet images, some still missing, so the window has a realistic week to show.
+It opens in **demo mode** with a made-up roster and ten weeks of sample timesheets, so you can click
+around straight away.
 
-Command line:
-
-```bash
-python tool/timesheets.py             # the week being collected now
-python tool/timesheets.py last        # the week that has just finished
-python tool/timesheets.py 04/10       # the week containing that date
-python tool/timesheets.py --late 12   # which venues go missing most often over 12 weeks
-```
-
-## Using it with a real roster
-
-Share the roster Google Sheet as *anyone with the link can view*, then either set an environment variable
+Prefer the command line?
 
 ```bash
-setx ROSTER_SHEET_ID "your-google-sheet-id"
+python tool/timesheets.py             # this week
+python tool/timesheets.py last        # last week
+python tool/timesheets.py 04/10       # the week containing a date
+python tool/timesheets.py --late 12   # venues most often late over 12 weeks
 ```
 
-or create `tool/config.json` (ignored by git):
+## Use it with your own roster
 
-```json
-{ "roster_id": "your-google-sheet-id", "desktop": "C:/Users/you/Desktop" }
+1. Share your roster Google Sheet as *anyone with the link can view*.
+2. Tell Sheet Tracker the sheet's id, either with an environment variable:
+
+   ```bash
+   setx ROSTER_SHEET_ID "your-google-sheet-id"
+   ```
+
+   or with a small file, `tool/config.json` (git ignores it):
+
+   ```json
+   { "roster_id": "your-google-sheet-id", "desktop": "C:/Users/you/Desktop" }
+   ```
+
+3. Save each week's photos in a Desktop folder named for the Sunday, for example `Timesheets 01.11.26`.
+4. Double-click `Sheet Tracker.bat`, or put a shortcut to it on your Desktop.
+
+## Who it is for
+
+Security companies, guarding and door-staff firms, facilities teams, cleaning contractors, event staffing
+agencies: anyone who rosters staff across many sites and has to collect a timesheet from each one every week.
+
+**Keywords:** timesheet tracker, missing timesheet checker, staff roster tool, security guard rostering,
+control room software, door staff timesheets, shift roster Google Sheets, weekly timesheet collection,
+workforce management, Python desktop app, tkinter GUI, Windows tool.
+
+---
+
+## Technical details
+
+**Stack:** Python 3 (standard library only), tkinter GUI, PowerShell + `Windows.Media.Ocr` for OCR, no
+third-party dependencies and no install step.
+
+**Roster ingestion.** The roster is a wide Google Sheet pulled as a read-only `.xlsx` export over HTTPS.
+`xl.py` is a ~100-line OOXML reader (zip + `xml.etree`) that resolves shared strings, cell styles,
+fills and strike-through without openpyxl. `timesheets.py` parses each week block (a venue label column
+plus seven day columns of alternating shift-time and name rows) into venues, shifts and people. It
+tolerates notes in the label column, labels typed into day columns, duplicated or missing date headers,
+merged weeks and per-venue closed days. Fill colours carry state: green confirmed, yellow provisional,
+struck-through cancelled.
+
+**Fuzzy file-to-venue matching.** File stems are canonicalised (NFKD accent folding, apostrophe and
+punctuation stripping, noise-word removal, trailing page numbers dropped), then matched against per-venue
+alias sets with whole-word and `difflib` similarity rules. Short aliases must match whole words, so camera
+numbers like `IMG_3125` never false-match. Manual assignments persist in `names.json`.
+
+**Shift-end inference and closing times.** Shift strings (`20:00-close`, `21:00-03-00`, `18.00-close`) are
+parsed with regex into start/end minutes, including overnight spans. For open-ended "close" shifts,
+`ocrscan.ps1` batch-OCRs the archive of timesheet photos with the built-in Windows OCR engine (about 5 sheets
+a second, positional word output to JSONL), and `ocrclose.py` derives each venue's closing time by
+column-position filtering (`RIGHT = 0.82`) and majority voting across hundreds of noisy readings, with a
+`ROSTER_SHARE` threshold deciding when the roster's own end times outweigh the OCR evidence.
+
+**Contact selection.** Who to ask is ranked from the venue's last rostered shift, explicit contacts and a
+12-week "regulars" window. A live countdown re-times every row (*not yet → on now → finished*) without
+re-reading the roster.
+
+**Deterministic demo mode.** With no sheet id configured, `demo/make_demo.py` rebases an anonymised roster
+template's date serials by whole weeks to the current week and synthesises PNG placeholder timesheets
+(pure-stdlib zlib/PNG encoder) with seeded randomness and realistic modification times. The demo is
+reproducible across dates, which lets the test suite pin exact expectations.
+
+**Testing.** Five standard-library suites:
+
+| Suite | What it covers |
+|---|---|
+| `selftest.py --window` | week arithmetic, folder-name parsing, filename matching, pinned demo weeks, headless GUI run |
+| `faketest.py` | edge cases on a synthetic roster generated by `fakeroster.py` |
+| `flowtest.py` | drives every GUI control off-screen with `report_callback_exception` hooked, since tkinter swallows callback errors, and flags any step slower than 2 s |
+| `sweep.py 2026` | every week of a year through the full check |
+| `audit.py` | property/invariant checks on every week (in + missing = rostered, each file counted once, monotonic clock-winding in 20-minute steps) |
+
+**Project layout**
+
 ```
-
-`Sheet Tracker.bat` opens the window without a console. Put a shortcut to it on the Desktop.
-
-## How the roster is read
-
-The roster is one wide sheet: for each week, a label column of venues (black cells) and seven day columns.
-Under each day are pairs of rows, a shift time (`20:00-close`, `21:00-03-00`) above a guard's name. Green
-means confirmed, yellow provisional, struck-through cancelled.
-
-`xl.py` is a ~100-line read-only `.xlsx` reader (zip + XML, no openpyxl). `timesheets.py` turns cells into
-venues, shifts and people. It handles notes typed into the venue column, labels typed into day columns,
-duplicated or missing date headers and venues closed on Sundays.
-
-## Tests
-
-Five checks, all standard library. Run all five after any change:
-
-```bash
-python tool/selftest.py --window   # week maths, file-name matching, pinned demo weeks, the window off-screen
-python tool/faketest.py            # awkward cases on a roster built by fakeroster.py
-python tool/flowtest.py            # drives every button of the window off-screen (tkinter swallows errors - this catches them)
-python tool/sweep.py 2026          # every week of a year through the check
-python tool/audit.py               # invariants on every week: in + missing = rostered, each file counted once, ...
-```
-
-`audit.py` also "winds the clock" through every venue of every week in 20-minute steps and insists the
-answer only ever moves *not yet â†’ on now â†’ finished*.
-
-## Layout
-
-```
-Sheet Tracker.bat      opens the window
+Sheet Tracker.bat      launcher (no console window)
 tool/
-  app.pyw              the window (tkinter)
-  timesheets.py        roster reading, venue matching, who/when to ask - and the CLI
+  app.pyw              tkinter GUI
+  timesheets.py        roster parsing, venue matching, scheduling logic, CLI
   xl.py                minimal read-only xlsx reader
-  ocrscan.ps1          Windows.Media.Ocr over every timesheet photo -> ocr/words.jsonl
-  ocrclose.py          words.jsonl -> ocr/closing.json (closing time per venue)
-  makeicon.py          draws app.ico, pure stdlib
+  ocrscan.ps1          Windows OCR over the photo archive
+  ocrclose.py          OCR words -> per-venue closing times
+  makeicon.py          multi-resolution .ico generator, pure stdlib
   selftest.py faketest.py flowtest.py sweep.py audit.py fakeroster.py closing.py
 demo/
-  roster-template.xlsx invented roster in the real layout
-  make_demo.py         dates moved to this week + placeholder timesheet photos
+  roster-template.xlsx anonymised roster in the real layout
+  make_demo.py         date-rebased demo roster + synthetic timesheet photos
 docs/screenshots/
 ```
 
