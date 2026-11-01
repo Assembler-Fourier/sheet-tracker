@@ -1,0 +1,362 @@
+{
+ "12 Harbour st": {
+  "close": "3:30",
+  "close_min": 210,
+  "from": "the sheets",
+  "of": 40,
+  "sheets": 93,
+  "sure": 0.4,
+  "votes": 16
+ },
+ "Elysium Ferncourt": {
+  "close": "0:00",
+  "close_min": 0,
+  "from": "the sheets",
+  "of": 77,
+  "sheets": 92,
+  "sure": 0.25,
+  "votes": 19
+ },
+ "Ashbury": {
+  "close": "0:00",
+  "close_min": 0,
+  "from": "the roster",
+  "of": 132,
+  "sheets": 51,
+  "sure": 0.53,
+  "votes": 70
+ },
+ "WESTGATE": {
+  "close": "18:00",
+  "close_min": 1080,
+  "from": "the roster",
+  "of": 98,
+  "sheets": 91,
+  "sure": 0.86,
+  "votes": 84
+ },
+ "SEAVIEW": {
+  "close": "18:00",
+  "close_min": 1080,
+  "from": "the roster",
+  "of": 98,
+  "sheets": 92,
+  "sure": 0.86,
+  "votes": 84
+ },
+ "Lido": {
+  "close": "17:00",
+  "close_min": 1020,
+  "from": "the roster",
+  "of": 11,
+  "sheets": 38,
+  "sure": 0.27,
+  "votes": 3
+ },
+ "Orchard House": {
+  "close": "1:30",
+  "close_min": 90,
+  "from": "the roster",
+  "of": 32,
+  "sheets": 96,
+  "sure": 0.94,
+  "votes": 30
+ },
+ "Lucerne": {
+  "close": "3:00",
+  "close_min": 180,
+  "from": "the sheets",
+  "of": 40,
+  "sheets": 94,
+  "sure": 0.33,
+  "votes": 13
+ },
+ "STONEBRIDGE": {
+  "close": "18:00",
+  "close_min": 1080,
+  "from": "the roster",
+  "of": 125,
+  "sheets": 92,
+  "sure": 0.78,
+  "votes": 97
+ },
+ "BROOKVALE": {
+  "close": "18:00",
+  "close_min": 1080,
+  "from": "the roster",
+  "of": 98,
+  "sheets": 92,
+  "sure": 0.86,
+  "votes": 84
+ },
+ "QuickStop Elmfield": {
+  "close": "21:30",
+  "close_min": 1290,
+  "from": "the roster",
+  "of": 99,
+  "sheets": 93,
+  "sure": 0.99,
+  "votes": 98
+ },
+ "K9 / Red Door": {
+  "close": "3:00",
+  "close_min": 180,
+  "from": "the sheets",
+  "of": 66,
+  "sheets": 122,
+  "sure": 0.67,
+  "votes": 44
+ },
+ "BRIDGEPORT": {
+  "close": "18:00",
+  "close_min": 1080,
+  "from": "the roster",
+  "of": 98,
+  "sheets": 92,
+  "sure": 0.86,
+  "votes": 84
+ },
+ "Hanlons": {
+  "close": "3:00",
+  "close_min": 180,
+  "from": "the sheets",
+  "of": 60,
+  "sheets": 94,
+  "sure": 0.62,
+  "votes": 37
+ },
+ "OAKRIDGE": {
+  "close": "18:00",
+  "close_min": 1080,
+  "from": "the roster",
+  "of": 98,
+  "sheets": 92,
+  "sure": 0.86,
+  "votes": 84
+ },
+ "ASHGROVE": {
+  "close": "18:00",
+  "close_min": 1080,
+  "from": "the roster",
+  "of": 98,
+  "sheets": 92,
+  "sure": 0.85,
+  "votes": 83
+ },
+ "Portlane": {
+  "close": "9:00",
+  "close_min": 540,
+  "from": "the roster",
+  "of": 98,
+  "sheets": 46,
+  "sure": 0.98,
+  "votes": 96
+ },
+ "Costellos": {
+  "close": "3:00",
+  "close_min": 180,
+  "from": "the sheets",
+  "of": 92,
+  "sheets": 102,
+  "sure": 0.8,
+  "votes": 74
+ },
+ "Bullseye Club Darts / Pats": {
+  "close": "1:00",
+  "close_min": 60,
+  "from": "the sheets",
+  "of": 8,
+  "sheets": 86,
+  "sure": 0.5,
+  "votes": 4
+ },
+ "Loft": {
+  "close": "3:30",
+  "close_min": 210,
+  "from": "the sheets",
+  "of": 29,
+  "sheets": 100,
+  "sure": 0.31,
+  "votes": 9
+ },
+ "Fogartys": {
+  "close": "1:30",
+  "close_min": 90,
+  "from": "the sheets",
+  "of": 5,
+  "sheets": 82,
+  "sure": 0.6,
+  "votes": 3
+ },
+ "Keystone": {
+  "close": "4:30",
+  "close_min": 270,
+  "from": "the sheets",
+  "of": 4,
+  "sheets": 59,
+  "sure": 0.5,
+  "votes": 2
+ },
+ "Kilcarran": {
+  "close": "6:00",
+  "close_min": 360,
+  "from": "the roster",
+  "of": 195,
+  "sheets": 92,
+  "sure": 0.5,
+  "votes": 98
+ },
+ "Nona's": {
+  "close": "1:00",
+  "close_min": 60,
+  "from": "the sheets",
+  "of": 21,
+  "sheets": 90,
+  "sure": 0.57,
+  "votes": 12
+ },
+ "Brennans Mill st": {
+  "close": "22:00",
+  "close_min": 1320,
+  "from": "the roster",
+  "of": 56,
+  "sheets": 135,
+  "sure": 1.0,
+  "votes": 56
+ },
+ "Glenmore": {
+  "close": "21:00",
+  "close_min": 1260,
+  "from": "the roster",
+  "of": 43,
+  "sheets": 93,
+  "sure": 0.33,
+  "votes": 14
+ },
+ "KILMORAN": {
+  "close": "18:00",
+  "close_min": 1080,
+  "from": "the roster",
+  "of": 98,
+  "sheets": 92,
+  "sure": 0.86,
+  "votes": 84
+ },
+ "O'Garvey": {
+  "close": "22:10",
+  "close_min": 1330,
+  "from": "the roster (thin)",
+  "of": 30,
+  "sheets": 93,
+  "sure": 0.03,
+  "votes": 1
+ },
+ "Column bar (Delacroix)": {
+  "close": "3:00",
+  "close_min": 180,
+  "from": "the sheets",
+  "of": 15,
+  "sheets": 76,
+  "sure": 0.73,
+  "votes": 11
+ },
+ "Perch Kilcarran": {
+  "close": "2:30",
+  "close_min": 150,
+  "from": "the sheets",
+  "of": 14,
+  "sheets": 108,
+  "sure": 0.21,
+  "votes": 3
+ },
+ "ELMHURST": {
+  "close": "18:00",
+  "close_min": 1080,
+  "from": "the roster",
+  "of": 98,
+  "sheets": 92,
+  "sure": 0.86,
+  "votes": 84
+ },
+ "MEADOWBANK": {
+  "close": "18:00",
+  "close_min": 1080,
+  "from": "the roster",
+  "of": 98,
+  "sheets": 92,
+  "sure": 0.86,
+  "votes": 84
+ },
+ "Quinlans": {
+  "close": "0:00",
+  "close_min": 0,
+  "from": "the sheets",
+  "of": 10,
+  "sheets": 44,
+  "sure": 0.8,
+  "votes": 8
+ },
+ "Lucky Bingo": {
+  "close": "3:00",
+  "close_min": 180,
+  "from": "the roster",
+  "of": 98,
+  "sheets": 91,
+  "sure": 1.0,
+  "votes": 98
+ },
+ "HILLCREST": {
+  "close": "18:00",
+  "close_min": 1080,
+  "from": "the roster",
+  "of": 98,
+  "sheets": 89,
+  "sure": 0.86,
+  "votes": 84
+ },
+ "The Jug": {
+  "close": "3:00",
+  "close_min": 180,
+  "from": "the sheets",
+  "of": 102,
+  "sheets": 89,
+  "sure": 0.7,
+  "votes": 71
+ },
+ "The Old Haunt": {
+  "close": "22:00",
+  "close_min": 1320,
+  "from": "the roster",
+  "of": 4,
+  "sheets": 17,
+  "sure": 0.5,
+  "votes": 2
+ },
+ "The Meadows": {
+  "close": "1:30",
+  "close_min": 90,
+  "from": "the sheets",
+  "of": 21,
+  "sheets": 92,
+  "sure": 0.33,
+  "votes": 7
+ },
+ "The Wharf": {
+  "close": "2:30",
+  "close_min": 150,
+  "from": "the sheets",
+  "of": 7,
+  "sheets": 93,
+  "sure": 0.71,
+  "votes": 5
+ },
+ "Town Ballyrock": {
+  "close": "1:00",
+  "close_min": 60,
+  "from": "the sheets",
+  "of": 11,
+  "sheets": 91,
+  "sure": 0.45,
+  "votes": 5
+ }
+}

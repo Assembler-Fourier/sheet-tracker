@@ -1,0 +1,12 @@
+# local state - never commit
+tool/cache/
+tool/config.json
+tool/names.json
+tool/chased.json
+tool/contacts.json
+tool/ocr/words.jsonl
+demo/Desktop/
+Lists/
+__pycache__/
+*.pyc
+*.part
